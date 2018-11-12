@@ -7,22 +7,22 @@
 (defn fps-handler [req]
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    "Pew pew!"})
-(defn mail-man []
-  "{\"Spongebob Narrator\": \"5 years later...\"}")
+   :body    "Root"})
+(defn mail-text []
+  "{\"myKey\": \"myText\"}")
 (defn mail-handler [req]
   {:status  200
    :headers {"Content-Type" "text/json"} ;(1)
-   :body    (mail-man)}) ;(2)
+   :body    (mail-text)}) ;(2)
 (defn general-handler [req]
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    "All hail General Zod!"})
+   :body    "A general handler for anything!"})
 (defroutes app-routes ;(3)
            (GET "/" [] fps-handler)
            (POST "/postoffice" [] mail-handler)
            (ANY "/anything-goes" [] general-handler)
-           (route/not-found "You Must Be New Here")) ;(4)
+           (route/not-found "The route was not found")) ;(4)
 (defn -main
   "This is our app's entry point"
   [& args]

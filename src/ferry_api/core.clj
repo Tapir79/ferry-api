@@ -22,7 +22,7 @@
            (GET "/" [] fps-handler)
            (POST "/postoffice" [] mail-handler)
            (ANY "/anything-goes" [] general-handler)
-           (route/not-found "The route was not found")) ;(4)
+           (route/not-found "The route was not found!")) ;(4)
 (defn -main
   "This is our app's entry point"
   [& args]

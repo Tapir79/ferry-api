@@ -4,13 +4,13 @@
             [compojure.core :refer :all]
             [compojure.route :as route]))
 
-(defn fps-handler [req]
+(defn get-handler [req]
   {:status  200
    :headers {"Content-Type" "text/html"}
    :body    "Root"})
 (defn mail-text []
   "{\"myKey\": \"myText\"}")
-(defn mail-handler [req]
+(defn post-handler [req]
   {:status  200
    :headers {"Content-Type" "text/json"} ;(1)
    :body    (mail-text)}) ;(2)
@@ -19,8 +19,8 @@
    :headers {"Content-Type" "text/html"}
    :body    "A general handler for anything!"})
 (defroutes app-routes ;(3)
-           (GET "/" [] fps-handler)
-           (POST "/postoffice" [] mail-handler)
+           (GET "/" [] get-handler)
+           (POST "/posthandler" [] post-handler)
            (ANY "/anything-goes" [] general-handler)
            (route/not-found "The route was not found!")) ;(4)
 (defn -main

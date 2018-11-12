@@ -12,8 +12,8 @@
   "{\"myKey\": \"myText\"}")
 (defn post-handler [req]
   {:status  200
-   :headers {"Content-Type" "text/json"} ;(1)
-   :body    (mail-text)}) ;(2)
+   :headers {"Content-Type" "text/json"}
+   :body    (mail-text)}) 
 (defn general-handler [req]
   {:status  200
    :headers {"Content-Type" "text/html"}
@@ -22,7 +22,7 @@
            (GET "/" [] get-handler)
            (POST "/posthandler" [] post-handler)
            (ANY "/anything-goes" [] general-handler)
-           (route/not-found "The route was not found!")) ;(4)
+           (route/not-found "The route was not found!"))
 (defn -main
   "This is our app's entry point"
   [& args]

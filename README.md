@@ -1,20 +1,20 @@
 # ferry-api
 
-FIXME: description
+A simple lightweight server made with:    
+Leiningen app template:  https://leiningen.org/     
+Server Library: https://github.com/http-kit/http-kit      
+Routing Library: https://github.com/weavejester/compojure/      
 
 ## Installation
 
-Download from http://example.com/FIXME.
+created with Leiningen app 
+$ lein new app ferry-api
 
 ## Usage
 
-FIXME: explanation
+Terminal
+$ lein run
 
-    $ java -jar ferry-api-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
 
 ## Examples
 

@@ -1,0 +1,12 @@
+version: '0'
+services:
+  db:
+    image: postgres:10.3
+    ports:
+    - "5432:5432"
+    volumes:
+    - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+    environment:
+      POSTGRES_DB: ferry
+      POSTGRES_USER: ferry
+      POSTGRES_PASSWORD: ferry

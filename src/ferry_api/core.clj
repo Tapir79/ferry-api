@@ -8,21 +8,26 @@
   {:status  200
    :headers {"Content-Type" "text/html"}
    :body    "Root"})
+
 (defn mail-text []
   "{\"myKey\": \"myText\"}")
+
 (defn post-handler [req]
   {:status  200
    :headers {"Content-Type" "text/json"}
-   :body    (mail-text)}) 
+   :body    (mail-text)})
+
 (defn general-handler [req]
   {:status  200
    :headers {"Content-Type" "text/html"}
    :body    "A general handler for anything!"})
-(defroutes app-routes ;(3)
+
+(defroutes app-routes
            (GET "/" [] get-handler)
            (POST "/posthandler" [] post-handler)
            (ANY "/anything-goes" [] general-handler)
            (route/not-found "The route was not found!"))
+
 (defn -main
   "This is our app's entry point"
   [& args]

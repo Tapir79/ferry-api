@@ -13,7 +13,12 @@ $ lein new app ferry-api
 
 ## Usage
 
-Terminal
+Terminal 1
+$ cd devops
+$ docker-compose down
+$ docker-compose up 
+
+Terminal 2
 $ lein run
 
 

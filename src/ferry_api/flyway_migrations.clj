@@ -2,7 +2,7 @@
   (:import org.flywaydb.core.Flyway
            org.flywaydb.core.internal.info.MigrationInfoDumper))
 
-;; Build DB String 
+;; Build DB String
 (def db-url (str "jdbc:postgresql://localhost:5432/ferry"))
 
 ;; Initialize Flyway object

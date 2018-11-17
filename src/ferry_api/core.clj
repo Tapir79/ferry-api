@@ -2,20 +2,30 @@
   (:gen-class)
   (:require [org.httpkit.server :as server]
             [compojure.core :refer :all]
-            [compojure.route :as route]))
+            [compojure.route :as route]
+            [ring.middleware.json :only [wrap-json-body]]
+            [ring.util.json-response :as json-response]
+            [ferry-api.flyway-migrations :as flyway]
+            [ferry-api.queries.test :as sql-test]))
 
 (defn get-handler [req]
   {:status  200
-   :headers {"Content-Type" "text/html"}
-   :body    "Root"})
+   :headers {"Content-Type" "text/json"}
+   :body    (:body (json-response/json-response (sql-test/all-tests)))})
 
-(defn mail-text []
-  "{\"myKey\": \"myText\"}")
-
-(defn post-handler [req]
+#_(defn get-handler [req]
   {:status  200
    :headers {"Content-Type" "text/json"}
-   :body    (mail-text)})
+   :body    (sql-test/all-tests)})
+(defn get-one-handler [id]
+  {:status  200
+   :headers {"Content-Type" "text/json"}
+   :body    (sql-test/one-test id)})
+
+(defn post-new-handler [body]
+    {:status 200
+     :headers {"Content-Type" "text/json"}
+     :body    (sql-test/new-test-body body)})
 
 (defn general-handler [req]
   {:status  200
@@ -23,8 +33,11 @@
    :body    "A general handler for anything!"})
 
 (defroutes app-routes
-           (GET "/" [] get-handler)
-           (POST "/posthandler" [] post-handler)
+           (GET "/tests" [] get-handler)
+           (GET "/tests/:id" [id] (get-one-handler (read-string id)))
+           ; muunna body keywordeiksi
+           (POST "/tests" {body :body} (post-new-handler (slurp body)))
+           (POST "/posttest" [] (str(sql-test/new-test)))
            (ANY "/anything-goes" [] general-handler)
            (route/not-found "The route was not found!"))
 
@@ -33,4 +46,5 @@
   [& args]
   (let [port (Integer/parseInt (or (System/getenv "PORT") "8080"))]
     (server/run-server #'app-routes {:port port})
-    (println (str "Running webserver at http:/127.0.0.1:" port "/"))))
+    (println (str "Running webserver at http:/127.0.0.1:" port "/"))
+    (flyway/reset)))

@@ -24,7 +24,7 @@
   (all-test-messages))
 
 (defn one-test [id]
-  (edn2json(test-by-id {:id id})))
+  (test-by-id {:id id}))
 
 (defn new-test []
   (new-test<! test))

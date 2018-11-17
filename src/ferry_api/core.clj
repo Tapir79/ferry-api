@@ -3,7 +3,6 @@
   (:require [org.httpkit.server :as server]
             [compojure.core :refer :all]
             [compojure.route :as route]
-            [ring.middleware.json :only [wrap-json-body]]
             [ring.util.json-response :as json-response]
             [ferry-api.flyway-migrations :as flyway]
             [ferry-api.queries.test :as sql-test]))
@@ -16,7 +15,7 @@
 (defn get-one-handler [id]
   {:status  200
    :headers {"Content-Type" "text/json"}
-   :body    (sql-test/one-test id)})
+   :body    (:body (json-response/json-response (sql-test/one-test id)))})
 
 (defn post-new-handler [body]
     {:status 200

@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91caacc6-5273-4649-aed6-a5e1aaca54ca" name="Default Changelist" comment="add core changes">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__clj_time_0_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__clojure_complete_0_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__clout_2_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__commons_codec_1_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__commons_fileupload_1_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__commons_io_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__compojure_1_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__crypto_equality_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__crypto_random_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__http_kit_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__joda_time_2_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__medley_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_clojure_1_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_data_json_0_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_tools_macro_0_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_tools_nrepl_0_2_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__ring_json_response_0_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__ring_ring_codec_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__ring_ring_core_1_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/db/migrations/V1__init.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ferry_api/queries/test.clj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ferry_api/queries/test.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ferry_api/core.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/ferry_api/core.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ferry_api/flyway_migrations.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/ferry_api/flyway_migrations.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ferry_api/queries/test.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/ferry_api/queries/test.clj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +47,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="clj" value="3079" />
+          <entry key="clj" value="3092" />
           <entry key="gitignore" value="8" />
           <entry key="md" value="429" />
           <entry key="sh" value="5" />
@@ -84,7 +59,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="5" />
-          <entry key="Clojure" value="3079" />
+          <entry key="Clojure" value="3092" />
           <entry key="DBN-SQL" value="336" />
           <entry key="Markdown" value="429" />
           <entry key="PLAIN_TEXT" value="216" />
@@ -103,11 +78,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ferry_api/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="175">
+              <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -121,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ferry_api/queries/test.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="373">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -171,8 +146,8 @@
         <option value="$PROJECT_DIR$/resources/db/migrations/V1__init.sql" />
         <option value="$PROJECT_DIR$/src/ferry_api/queries/test.sql" />
         <option value="$PROJECT_DIR$/project.clj" />
-        <option value="$PROJECT_DIR$/src/ferry_api/core.clj" />
         <option value="$PROJECT_DIR$/src/ferry_api/queries/test.clj" />
+        <option value="$PROJECT_DIR$/src/ferry_api/core.clj" />
       </list>
     </option>
   </component>
@@ -431,17 +406,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ferry_api/core.clj">
+    <entry file="file://$PROJECT_DIR$/src/ferry_api/queries/test.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="373">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ferry_api/queries/test.clj">
+    <entry file="file://$PROJECT_DIR$/src/ferry_api/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="175">
+          <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
         </state>
       </provider>
     </entry>

@@ -13,10 +13,6 @@
    :headers {"Content-Type" "text/json"}
    :body    (:body (json-response/json-response (sql-test/all-tests)))})
 
-#_(defn get-handler [req]
-  {:status  200
-   :headers {"Content-Type" "text/json"}
-   :body    (sql-test/all-tests)})
 (defn get-one-handler [id]
   {:status  200
    :headers {"Content-Type" "text/json"}
@@ -35,9 +31,7 @@
 (defroutes app-routes
            (GET "/tests" [] get-handler)
            (GET "/tests/:id" [id] (get-one-handler (read-string id)))
-           ; muunna body keywordeiksi
            (POST "/tests" {body :body} (post-new-handler (slurp body)))
-           (POST "/posttest" [] (str(sql-test/new-test)))
            (ANY "/anything-goes" [] general-handler)
            (route/not-found "The route was not found!"))
 

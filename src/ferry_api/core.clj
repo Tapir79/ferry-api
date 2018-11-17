@@ -3,7 +3,6 @@
   (:require [org.httpkit.server :as server]
             [compojure.core :refer :all]
             [compojure.route :as route]
-            [ring.middleware.json :only [wrap-json-body]]
             [ring.util.json-response :as json-response]
             [ferry-api.flyway-migrations :as flyway]
             [ferry-api.queries.test :as sql-test]))
@@ -13,14 +12,10 @@
    :headers {"Content-Type" "text/json"}
    :body    (:body (json-response/json-response (sql-test/all-tests)))})
 
-#_(defn get-handler [req]
-  {:status  200
-   :headers {"Content-Type" "text/json"}
-   :body    (sql-test/all-tests)})
 (defn get-one-handler [id]
   {:status  200
    :headers {"Content-Type" "text/json"}
-   :body    (sql-test/one-test id)})
+   :body    (:body (json-response/json-response (sql-test/one-test id)))})
 
 (defn post-new-handler [body]
     {:status 200
@@ -35,9 +30,7 @@
 (defroutes app-routes
            (GET "/tests" [] get-handler)
            (GET "/tests/:id" [id] (get-one-handler (read-string id)))
-           ; muunna body keywordeiksi
            (POST "/tests" {body :body} (post-new-handler (slurp body)))
-           (POST "/posttest" [] (str(sql-test/new-test)))
            (ANY "/anything-goes" [] general-handler)
            (route/not-found "The route was not found!"))
 

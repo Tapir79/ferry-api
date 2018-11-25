@@ -2,14 +2,8 @@ CREATE TABLE lines (
     id integer primary key,
     name_sv text,
     name_fi text,
-    name_en text,
-    geometry text
+    name_en text
 );
-
-INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (1, 'Norra linjen', 'Pohjoinen linja', 'Northen line');
-INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (2, 'Södra linjen', 'Eteläinen linja', 'Southern line');
-INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (3, 'Tvärgående linjen', 'Poikittainen linja', 'Cross line');
-INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (4, 'Föglölinjen', 'Föglön linja', 'Föglö line');
 
 CREATE TABLE stops (
     id integer primary key,
@@ -17,6 +11,19 @@ CREATE TABLE stops (
     lat decimal,
     lng decimal
 );
+
+CREATE TABLE line_segments (
+    id integer primary key,
+    from_stop integer references stops(id),
+    to_stop integer references stops(id),
+    line integer references lines(id),
+    geometry text
+);
+
+INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (1, 'Norra linjen', 'Pohjoinen linja', 'Northen line');
+INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (2, 'Södra linjen', 'Eteläinen linja', 'Southern line');
+INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (3, 'Tvärgående linjen', 'Poikittainen linja', 'Cross line');
+INSERT INTO lines (id, name_sv, name_fi, name_en) VALUES (4, 'Föglölinjen', 'Föglön linja', 'Föglö line');
 
 INSERT INTO stops (id, name, lat, lng) VALUES (1, 'Snäckö', 60.21916, 20.72675);
 INSERT INTO stops (id, name, lat, lng) VALUES (2, 'Sottunga', 60.11003, 20.68214);
@@ -38,3 +45,19 @@ INSERT INTO stops (id, name, lat, lng) VALUES (14, 'Kumlinge', 60.2904026, 20.79
 INSERT INTO stops (id, name, lat, lng) VALUES (15, 'Lappo', 60.3174626, 20.9959478);
 INSERT INTO stops (id, name, lat, lng) VALUES (16, 'Torsholma', 60.3568842, 21.0388434);
 
+-- Södra linjen
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (1, 6, 7, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (2, 7, 8, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (3, 8, 9, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (4, 9, 2, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (5, 2, 3, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (6, 3, 4, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (7, 8, 2, 2);
+
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (8, 4, 3, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (9, 3, 2, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (10, 2, 9, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (11, 9, 8, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (12, 8, 7, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (13, 7, 6, 2);
+INSERT INTO line_segments (id, from_stop, to_stop, line) VALUES (14, 7, 9, 2);

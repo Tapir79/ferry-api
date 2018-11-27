@@ -10,7 +10,8 @@
             ;[ring.middleware.json :refer [wrap-json-response wrap-json-body]]
             [ring.middleware.cors :refer [wrap-cors]]
             [ferry-api.flyway-migrations :as flyway]
-            [ferry-api.queries.test :as sql-test]))
+            [ferry-api.queries.test :as sql-test]
+            [ferry-api.timetables.timetables :as timetables]))
 
 (defn get-handler [req]
   {:status  200
@@ -34,11 +35,18 @@
    :headers {"Content-Type" "text/html"}
    :body    "A general handler for anything!"})
 
+(defn json-handler [data]
+  {:status 200
+   :headers {"Content-Type" "text/json;charset=utf-8"}
+   :body (:body (json-response/json-response data))})
+
 (defroutes app-routes
            (GET "/tests" [] get-handler)
            (GET "/tests/:id" [id] (get-one-handler (read-string id)))
            (POST "/tests" {body :body} (post-new-handler (slurp body)))
            (ANY "/anything-goes" [] general-handler)
+           (GET "/stops" [] (json-handler (timetables/stops)))
+           (GET "/departures/:stop" [stop] (json-handler (timetables/departures stop)))
            (route/not-found "The route was not found!"))
 
 (def app

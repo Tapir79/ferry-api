@@ -10,8 +10,9 @@
 (defqueries "ferry_api/timetables/timetables.sql"
       {:connection db-spec})
 
-(defn stops []
-    (get-stops))
+(defn stops [] (get-stops))
+(defn ships [] (get-ships))
+(defn lines [] (get-lines))
 
 (defn departures [stop]
     (get-departures {:stop (Long/valueOf stop)}))

@@ -1,6 +1,12 @@
 -- name: get-stops
 select * from stops
 
+-- name: get-lines
+select * from lines
+
+-- name: get-ships
+select * from ships
+
 -- name: get-departures
 select *
 from timetables tt

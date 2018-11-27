@@ -46,6 +46,8 @@
            (POST "/tests" {body :body} (post-new-handler (slurp body)))
            (ANY "/anything-goes" [] general-handler)
            (GET "/stops" [] (json-handler (timetables/stops)))
+           (GET "/ships" [] (json-handler (timetables/ships)))
+           (GET "/lines" [] (json-handler (timetables/lines)))
            (GET "/departures/:stop" [stop] (json-handler (timetables/departures stop)))
            (route/not-found "The route was not found!"))
 

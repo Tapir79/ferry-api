@@ -24,6 +24,12 @@ $ lein run
 
 ## API
 
+`/lines`
+
+`/ships`
+
+`/stops`
+
 `/departures/:stopId` Get departures of port
 
 ...

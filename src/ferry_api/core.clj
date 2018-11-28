@@ -6,53 +6,15 @@
             [compojure.route :as route]
             [compojure.handler :refer [site]]
             ;[ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [ring.util.json-response :as json-response]
             ;[ring.middleware.json :refer [wrap-json-response wrap-json-body]]
             [ring.middleware.cors :refer [wrap-cors]]
             [ferry-api.flyway-migrations :as flyway]
             [ferry-api.queries.test :as sql-test]
-            [ferry-api.timetables.timetables :as timetables]))
-
-(defn get-handler [req]
-  {:status  200
-   :headers {"Content-Type" "text/json"}
-   :body    (:body (json-response/json-response (sql-test/all-tests)))})
-   ;:body (sql-test/all-tests)})
-
-(defn get-one-handler [id]
-  {:status  200
-   :headers {"Content-Type" "text/json"}
-   :body    (:body (json-response/json-response (sql-test/one-test id)))})
-   ;:body (sql-test/one-test id)})
-
-(defn post-new-handler [body]
-  {:status  200
-   :headers {"Content-Type" "text/json"}
-   :body    (sql-test/new-test-body body)})
-
-(defn general-handler [req]
-  {:status  200
-   :headers {"Content-Type" "text/html"}
-   :body    "A general handler for anything!"})
-
-(defn json-handler [data]
-  {:status 200
-   :headers {"Content-Type" "text/json;charset=utf-8"}
-   :body (:body (json-response/json-response data))})
-
-(defroutes app-routes
-           (GET "/tests" [] get-handler)
-           (GET "/tests/:id" [id] (get-one-handler (read-string id)))
-           (POST "/tests" {body :body} (post-new-handler (slurp body)))
-           (ANY "/anything-goes" [] general-handler)
-           (GET "/stops" [] (json-handler (timetables/stops)))
-           (GET "/ships" [] (json-handler (timetables/ships)))
-           (GET "/lines" [] (json-handler (timetables/lines)))
-           (GET "/departures/:stop" [stop] (json-handler (timetables/departures stop)))
-           (route/not-found "The route was not found!"))
+            [ferry-api.queries.timetables.timetables :as timetables]
+            [ferry-api.routes.api-routes :as api-routes]))
 
 (def app
-  (-> app-routes
+  (-> api-routes/app-routes
       (wrap-cors
         :access-control-allow-origin [#".*"]
         :access-control-allow-headers ["Origin" "X-Requested-With" "Content-Type" "Accept"]

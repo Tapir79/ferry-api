@@ -2,7 +2,7 @@ CREATE MATERIALIZED VIEW v_timetables as
 select l.name_sv,
        l.name_fi,
        l.name_en,
-       l.id as lineid,
+       l.id as line_id,
        s.id as ship_id,
        (select s2.name from stops s2 where ls.from_stop = s2.id) as from_name,
        (select s2.name from stops s2 where ls.to_stop = s2.id) as to_name,

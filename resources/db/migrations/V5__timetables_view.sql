@@ -13,14 +13,14 @@ select l.name_sv,
        s.name as ship_name,
        s.passengers,
        s.cars,
-       s.phone ,
+       s.phone,
        ls.id as segment_id,
        ls.geometry
 from timetables t
-    join line_segments ls
+   left join line_segments ls
         on (t.segment = ls.id)
-    join ships s
+   left join ships s
         on (t.ship = s.id)
-    join lines l
+   left join lines l
         on (ls.line = l.id)
 order by start_time;

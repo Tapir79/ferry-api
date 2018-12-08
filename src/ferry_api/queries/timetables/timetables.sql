@@ -25,6 +25,6 @@ select * from bookings
 -- name: get-vehicles
 select * from vehicles
 
--- name: post-booking
+-- name: post-booking<!
 INSERT INTO bookings (first_name, last_name, address, postnumber, city, land, telephone, email, from_stop, to_stop, line, vehicle)
 VALUES (:first_name, :last_name, :address, :postnumber, :city, :land, :telephone, :email, :from_stop, :to_stop, :line, :vehicle)

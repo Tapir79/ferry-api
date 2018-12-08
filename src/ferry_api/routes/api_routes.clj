@@ -15,6 +15,7 @@
            (GET "/stops" [] (handlers/json-handler (timetables/stops)))
            (GET "/ships" [] (handlers/json-handler (timetables/ships)))
            (GET "/lines" [] (handlers/json-handler (timetables/lines)))
+           (GET "/timetables" [] (handlers/json-handler (timetables/timetables)))
            (GET "/departures/:stop" [stop] (handlers/json-handler (timetables/departures stop)))
            (GET "/linesegments" [] (handlers/json-handler (timetables/line-segments)))
            (GET "/stoproutes" [] (handlers/json-handler (timetables/stop-routes)))

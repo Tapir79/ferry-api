@@ -60,16 +60,45 @@ CREATE TABLE bookings(
     land varchar,
     telephone varchar,
     email varchar,
-    from_stop integer references stops(id),
-    to_stop integer references stops(id),
-    line integer references lines(id),
-    vehicle integer references vehicles(id)
+    from_stop integer,
+    from_stop_desc varchar,
+    to_stop integer,
+    to_stop_desc varchar,
+    start_time TIMESTAMP,
+    end_time TIMESTAMP,
+    line integer,
+    line_desc varchar,
+    ship integer,
+    ship_desc varchar,
+    vehicle integer,
+    vehicle_desc varchar,
+    created_at TIMESTAMP
 );
 
--- examples Teppo is travelling from Långnäs to Överö by Sothern Line and he has a motorcycle
-INSERT INTO bookings (first_name, last_name, address, postnumber, city, land, telephone, email, from_stop, to_stop, line, vehicle) VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com', 4, 3, 2, 2);
--- Terhi is travelling from Överö to Långnäs by Southern Line without a vehicle
-INSERT INTO bookings (first_name, last_name, address, postnumber, city, land, telephone, email, from_stop, to_stop, line, vehicle) VALUES ('Terhi','Testaaja','Kärsämäenkuja 4','02730','Kärsämäki', 'Finland','+35850222333','terhi.testaaja@gmail.com', 3, 4, 2, null);
+-- examples Teppo is travelling from Långnäs (4) to Överö (3) by Sothern Line and he has a motorcycle
+INSERT INTO bookings (first_name,
+last_name,
+address,
+postnumber, city, land, telephone, email,
+from_stop, from_stop_desc,
+to_stop, to_stop_desc,
+start_time, end_time,
+line, line_desc,
+vehicle, vehicle_desc,
+created_at)
+VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com', 4,'Långnäs', 3, 'Överö', '2018-12-10 07:05:00+02', '2018-12-10 07:50:00+02', 2, 'Södra linjen', 2, 'MC, mopedbil, 4-hjuling','2018-12-10 07:50:00+02');
+-- Terhi is travelling from Överö (3) to Långnäs (4) by Southern Line without a vehicle
+INSERT INTO bookings (first_name,
+last_name,
+address,
+postnumber, city, land, telephone, email,
+from_stop, from_stop_desc,
+to_stop, to_stop_desc,
+start_time, end_time,
+line, line_desc,
+vehicle, vehicle_desc,
+created_at)
+VALUES ('Terhi','Testaaja','Kärsämäenkuja 4','02730','Kärsämäki', 'Finland','+35850222333','terhi.testaaja@gmail.com', 3, 'Överö', 4, 'Långnäs', '2018-12-10 08:20:00+02', '2018-12-10 09:00:00+02', 2, 'Södra linjen',null,null,'2018-12-10 07:50:00+02');
 
 
 --grant all on all tables in schema public to ferry;

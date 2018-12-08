@@ -17,7 +17,10 @@ where tt.segment in (select id from line_segments where from_stop = :stop)
 select * from line_segments
 
 -- name: get-stoproutes
-select * from v_timetables
+select * from mv_timetables
+
+-- name: get-bookings-status_count
+select *  from v_booking_status
 
 -- name: get-timetables
 select * from timetables
@@ -74,6 +77,4 @@ to_timestamp(:end_time, 'YYYY.MM.DD. HH:MI:SS'),
 :vehicle_desc,
 now())
 
--- name: get-bookings-by-stop-routes-id
-select *  from v_booking_status
-where t_id = :id
+

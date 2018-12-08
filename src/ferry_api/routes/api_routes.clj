@@ -18,4 +18,7 @@
            (GET "/departures/:stop" [stop] (handlers/json-handler (timetables/departures stop)))
            (GET "/linesegments" [] (handlers/json-handler (timetables/line-segments)))
            (GET "/stoproutes" [] (handlers/json-handler (timetables/stop-routes)))
+           (GET "/bookings" [] (handlers/json-handler (timetables/bookings)))
+           (POST "/bookings" {body :body} (handlers/post-new-booking-handler (slurp body)))
+           (GET "/vehicles" [] (handlers/json-handler (timetables/vehicles)))
            (route/not-found "The route was not found!"))

@@ -5,12 +5,6 @@ CREATE TABLE test(
 
 INSERT INTO test(message) VALUES ('message1');
 
--- satamat
--- reitit
--- laiva
--- kulkuneuvo
--- aikataulu
-
 
 -- käyttäjä
 -- kausikortti

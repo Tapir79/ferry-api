@@ -3,7 +3,8 @@
             [compojure.core :refer :all]
             [compojure.handler :refer [site]]
             [ring.middleware.cors :refer [wrap-cors]]
-            [ferry-api.queries.test :as sql-test]))
+            [ferry-api.queries.test :as sql-test]
+            [ferry-api.queries.timetables.timetables :as sql-timetables]))
 
 (defn get-handler [req]
   {:status  200
@@ -21,6 +22,11 @@
   {:status  200
    :headers {"Content-Type" "text/json"}
    :body    (sql-test/new-test-body body)})
+
+(defn post-new-booking-handler [body]
+  {:status  200
+   :headers {"Content-Type" "text/json"}
+   :body    (sql-timetables/new-booking body)})
 
 (defn general-handler [req]
   {:status  200

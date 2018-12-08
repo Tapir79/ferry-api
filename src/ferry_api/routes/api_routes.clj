@@ -5,7 +5,7 @@
             [ring.middleware.cors :refer [wrap-cors]]
             [ferry-api.queries.timetables.timetables :as timetables]
             [ferry-api.routes.test-handlers :as handlers]
-            ))
+            [ferry-api.util.ws :as ws]))
 
 (defroutes app-routes
            (GET "/tests" [] handlers/get-handler)
@@ -22,4 +22,5 @@
            (GET "/bookings" [] (handlers/json-handler (timetables/bookings)))
            (POST "/bookings" {body :body} (handlers/post-new-booking-handler (slurp body)))
            (GET "/vehicles" [] (handlers/json-handler (timetables/vehicles)))
+           (GET "/booking-status" req (ws/ring-ajax-get-or-ws-handshake req))
            (route/not-found "The route was not found!"))

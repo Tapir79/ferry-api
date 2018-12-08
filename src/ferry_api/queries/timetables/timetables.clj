@@ -36,5 +36,6 @@
 (defn bookings [] (get-bookings))
 
 (defn new-booking [body]
-  (edn2json (post-booking (json2edn body))))
+  (edn2json (post-booking<! (json2edn body))))
+
 

@@ -21,6 +21,5 @@
            (GET "/bookings" [] (handlers/json-handler (timetables/bookings)))
            (POST "/bookings" {body :body} (handlers/post-new-booking-handler (slurp body)))
            (GET "/vehicles" [] (handlers/json-handler (timetables/vehicles)))
-           (POST "/bookings" {body :body} (ws/broadcast-to-all-clients! body))
            (GET "/booking-status" req (ws/ring-ajax-get-or-ws-handshake req))
            (route/not-found "The route was not found!"))

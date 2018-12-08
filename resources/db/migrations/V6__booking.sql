@@ -84,9 +84,10 @@ from_stop, from_stop_desc,
 to_stop, to_stop_desc,
 start_time, end_time,
 line, line_desc,
+ship, ship_desc,
 vehicle, vehicle_desc,
 created_at)
-VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com', 4,'Långnäs', 3, 'Överö', '2018-12-10 07:05:00+02', '2018-12-10 07:50:00+02', 2, 'Södra linjen', 2, 'MC, mopedbil, 4-hjuling','2018-12-10 07:50:00+02');
+VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com', 4,'Långnäs', 3, 'Överö', '2018-12-10 07:05:00+02', '2018-12-10 07:50:00+02', 2, 'Södra linjen', 8,'M/S Doppingen', 2, 'MC, mopedbil, 4-hjuling','2018-12-10 07:50:00+02');
 -- Terhi is travelling from Överö (3) to Långnäs (4) by Southern Line without a vehicle
 INSERT INTO bookings (first_name,
 last_name,
@@ -96,9 +97,78 @@ from_stop, from_stop_desc,
 to_stop, to_stop_desc,
 start_time, end_time,
 line, line_desc,
+ship, ship_desc,
 vehicle, vehicle_desc,
 created_at)
-VALUES ('Terhi','Testaaja','Kärsämäenkuja 4','02730','Kärsämäki', 'Finland','+35850222333','terhi.testaaja@gmail.com', 3, 'Överö', 4, 'Långnäs', '2018-12-10 08:20:00+02', '2018-12-10 09:00:00+02', 2, 'Södra linjen',null,null,'2018-12-10 07:50:00+02');
+VALUES ('Terhi','Testaaja','Kärsämäenkuja 4','02730','Kärsämäki', 'Finland','+35850222333','terhi.testaaja@gmail.com', 3, 'Överö', 4, 'Långnäs', '2018-12-10 08:20:00+02', '2018-12-10 09:00:00+02', 2, 'Södra linjen',8,'M/S Doppingen',null,null,'2018-12-10 07:50:00+02');
+
+
+-- demo 1
+
+INSERT INTO bookings (first_name,
+last_name,
+address,
+postnumber, city, land, telephone, email,
+from_stop, from_stop_desc,
+to_stop, to_stop_desc,
+start_time, end_time,
+line, line_desc,
+ship, ship_desc,
+vehicle, vehicle_desc,
+created_at)
+VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com',7, 'Kökar', 4,'Långnäs', '2018-12-13 06:30:00+02', '2018-12-13 09:00:00+02', 2, 'Södra linjen', 10, 'M/S Gudingen', 2, 'MC, mopedbil, 4-hjuling','2018-12-10 10:50:00+02');
+
+INSERT INTO bookings (first_name,
+last_name,
+address,
+postnumber, city, land, telephone, email,
+from_stop, from_stop_desc,
+to_stop, to_stop_desc,
+start_time, end_time,
+line, line_desc,
+ship, ship_desc,
+vehicle, vehicle_desc,
+created_at)
+VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com',7, 'Kökar', 4,'Långnäs', '2018-12-13 06:30:00+02', '2018-12-13 09:00:00+02', 2, 'Södra linjen', 10, 'M/S Gudingen', 2, 'MC, mopedbil, 4-hjuling','2018-12-10 10:50:00+02');
+
+INSERT INTO bookings (first_name,
+last_name,
+address,
+postnumber, city, land, telephone, email,
+from_stop, from_stop_desc,
+to_stop, to_stop_desc,
+start_time, end_time,
+line, line_desc,
+ship, ship_desc,
+vehicle, vehicle_desc,
+created_at)
+VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com',7, 'Kökar', 4,'Långnäs', '2018-12-13 06:30:00+02', '2018-12-13 09:00:00+02', 2, 'Södra linjen', 10, 'M/S Gudingen', 2, 'MC, mopedbil, 4-hjuling','2018-12-10 10:50:00+02');
+
+INSERT INTO bookings (first_name,
+last_name,
+address,
+postnumber, city, land, telephone, email,
+from_stop, from_stop_desc,
+to_stop, to_stop_desc,
+start_time, end_time,
+line, line_desc,
+ship, ship_desc,
+vehicle, vehicle_desc,
+created_at)
+VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com',7, 'Kökar', 4,'Långnäs', '2018-12-13 06:30:00+02', '2018-12-13 09:00:00+02', 2, 'Södra linjen', 10, 'M/S Gudingen', 2, 'MC, mopedbil, 4-hjuling','2018-12-10 10:50:00+02');
+
+INSERT INTO bookings (first_name,
+last_name,
+address,
+postnumber, city, land, telephone, email,
+from_stop, from_stop_desc,
+to_stop, to_stop_desc,
+start_time, end_time,
+line, line_desc,
+ship, ship_desc,
+vehicle, vehicle_desc,
+created_at)
+VALUES ('Teppo','Testaaja','Kärsämäentie 5 a 4','02720','Kärsämäki', 'Finland','+35850666333','teppo.testaaja@gmail.com',7, 'Kökar', 4,'Långnäs', '2018-12-13 06:30:00+02', '2018-12-13 09:00:00+02', 2, 'Södra linjen', 10, 'M/S Gudingen', null, null,'2018-12-10 10:50:00+02');
 
 
 --grant all on all tables in schema public to ferry;

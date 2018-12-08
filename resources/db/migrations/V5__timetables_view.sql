@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW v_timetables as
+CREATE MATERIALIZED VIEW mv_timetables as
 select l.name_sv,
        l.name_fi,
        l.name_en,
@@ -11,8 +11,8 @@ select l.name_sv,
        t.start_time,
        t.end_time,
        s.name as ship_name,
-       s.passengers,
-       s.cars,
+       s.passengers as max_passengers,
+       s.cars as max_vehicles,
        s.phone ,
        ls.id as segment_id,
        ls.geometry
@@ -23,4 +23,4 @@ from timetables t
         on (t.ship = s.id)
     join lines l
         on (ls.line = l.id)
-order by start_time;
+order by start_time asc;

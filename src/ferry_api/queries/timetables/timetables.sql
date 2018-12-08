@@ -73,3 +73,7 @@ to_timestamp(:end_time, 'YYYY.MM.DD. HH:MI:SS'),
 :vehicle,
 :vehicle_desc,
 now())
+
+-- name: get-bookings-by-stop-routes-id
+select *  from v_booking_status
+where t_id = :id

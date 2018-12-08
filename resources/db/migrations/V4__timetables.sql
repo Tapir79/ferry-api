@@ -2,8 +2,8 @@ CREATE TABLE timetables (
     id serial primary key,
     segment integer references line_segments(id),
     ship integer references ships(id),
-    start_time timestamp,
-    end_time timestamp
+    start_time TIMESTAMP,
+    end_time TIMESTAMP
 );
 
 -- Mon 10.12.2018

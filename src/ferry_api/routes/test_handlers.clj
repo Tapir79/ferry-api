@@ -27,8 +27,7 @@
 (defn post-new-booking-handler [body]
   {:status  200
    :headers {"Content-Type" "text/json"}
-   :body    ((sql-timetables/new-booking body)
-              (ws/broadcast-to-all-clients! body))})
+   :body    (ws/broadcast-to-all-clients! (sql-timetables/new-booking body))})
 
 (defn general-handler [req]
   {:status  200

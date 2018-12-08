@@ -5,13 +5,10 @@
             [compojure.core :refer :all]
             [compojure.route :as route]
             [compojure.handler :refer [site]]
-            ;[ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            ;[ring.middleware.json :refer [wrap-json-response wrap-json-body]]
             [ring.middleware.cors :refer [wrap-cors]]
             [ferry-api.flyway-migrations :as flyway]
-            [ferry-api.queries.test :as sql-test]
-            [ferry-api.queries.timetables.timetables :as timetables]
-            [ferry-api.routes.api-routes :as api-routes]))
+            [ferry-api.routes.api-routes :as api-routes]
+            [ferry-api.util.ws :as ws]))
 
 (def app
   (-> api-routes/app-routes
@@ -32,4 +29,5 @@
                   (site app))]
     (run-server handler {:port port})
     (println (str "Running webserver at http:/127.0.0.1:" port "/"))
+    (ws/start-router!)
     (flyway/reset)))

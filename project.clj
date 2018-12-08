@@ -13,6 +13,7 @@
                  [ring/ring-devel "1.7.1"]
                  [ring/ring-core "1.7.1"]
                  [javax.servlet/servlet-api "2.5"]
+                 [com.taoensso/sente "1.13.1"]
 
                  ;; Database
                  [yesql "0.5.3"]
